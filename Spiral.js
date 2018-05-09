@@ -11,5 +11,6 @@ Create variable containing input as 2^n where n === arg.
 
 */
 
-var spiral = {};
-var n = math.exp(prompt("Enter a whole, positive number larger than 1 to draw a spiral!"));
+var n = math.pow(2, prompt("Please enter a whole positive number larger than 1."));
+//var spiral = {};
+console.log(n);
