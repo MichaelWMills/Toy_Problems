@@ -4,14 +4,13 @@ This repo contains a bunch of toy problems that I've solved for in my free time.
 
 Example#1: Input(3)
 Output#1:
-            5 4 3
-            6 1 2
-            7 8 9
+            5,4,3
+            6,1,2
+            7,8,9
 
 Ex#2:      Input(4)
 Out#2:
-            16 15 14 13
-             5  4  3 12
-             6  1  2 11
-             7  8  9 10
-
+            16,15,14,13
+             5, 4, 3,12
+             6, 1, 2,11
+             7, 8, 9,10
