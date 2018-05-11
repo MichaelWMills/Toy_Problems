@@ -16,18 +16,29 @@ var readline = require('readline');
 
 var rl = readline.createInterface(process.stdin, process.stdout);
 
+//Variable to hold user input
+var n;
+
 var askq = function(){
-    rl.question('Test input:\n', function(answer){
-        //Logic only executes spiral function if input is a whole positive number at or greater than 2.
-        if(isNaN(Number(answer)) || !(Number(answer) % 1 === 0 && Number(answer) >= 2)){
+    rl.question('Please enter a whole, positive number greater than 1:', function(answer) {
+        if (answer === 'exit' || answer === 'close') {
+            rl.close();
+        } else if (isNaN(Number(answer)) || !(Number(answer) % 1 === 0 && Number(answer) >= 2)) {
+            //Logic only executes spiral function if input is a whole positive number at or greater than 2.
             console.log('Not a valid number.')
             askq();
         } else {
-            console.log('This is a valid number!')
-            rl.close();
+            console.log('Valid number accepted! Generating spiral... \n')
+            n = Number(answer);
+            spiral(n);
+            console.log('Try another number? (Type \'exit\' or \'close\' to stop the program) ...');
+            askq();
         };
-    
     });
 };
+
+var spiral = function() {
+
+}
 
 askq();
