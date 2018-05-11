@@ -38,9 +38,44 @@ var askq = function(){
 };
 
 var spiral = function(n) {
-    var container = {}; //Object used to store the spiral
-    for(var i = 0; i < n; i++){ //Loop that generates arrays holding the spiral. # of arrays needed === n
+    //Array used to store the spiral:
+    var container = []; 
+    //Loop that generates arrays holding the spiral. # of arrays needed === n. :
+    for(var i = 0; i < n; i++){ 
         container[i] = [];
+        for(var j = 0; j < n; j++){
+            container[i].push('');
+        }
+    }
+    //Current number for pointer to draw
+    var current = Math.pow(n, 2);
+    //Variables holding the coordinates guiding the pointer that writes the spiral. Starting position is determined based on whether n is an odd or even number:
+    var x, y;
+    if((n % 2) === 1){ //If odd, starts at bottom-right corner of spiral
+        x = container.length-1;
+        y = container.length-1;
+    } else { //If even, starts at top-left corner of Spiral
+        x = 0;
+        y = 0;
+    }
+    //Guides the pointer through the container, drawing the spiral as it goes:
+    while(current > 0){
+        console.log(x + ' / ' + y + ' / ' + current);
+        container[y][x] = current.toString();
+        console.log(container[y][x]);
+        if(container[y][x+1] === ''){
+            x++;
+        } else if (container[y+1][x] === ''){
+            y++;
+        } else if (container[y][x-1] === ''){
+            x--;
+        } else if (container[y-1][x] === ''){
+            y--;
+        } else {
+            continue;
+        }
+        console.log(container[y][x]);
+        current--;
     }
     console.log(container);
 }
